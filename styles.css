@@ -1,0 +1,253 @@
+/* Colors and fonts shared across the page. */
+:root {
+  --background: #f4f6f8;
+  --surface: #ffffff;
+  --text: #182230;
+  --muted: #526174;
+  --accent: #3448a5;
+  --border: #d6dde6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+header {
+  padding: 56px 24px;
+  background: #182230;
+  color: #ffffff;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0 0 12px;
+  font-size: clamp(2rem, 6vw, 3rem);
+  letter-spacing: -1px;
+}
+
+header p {
+  max-width: 550px;
+  margin: 0 auto;
+  color: #d5deec;
+}
+
+main {
+  width: min(100% - 40px, 1000px);
+  margin: 40px auto;
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 1.4rem;
+}
+
+main > section:first-child {
+  padding: 28px;
+  margin-bottom: 36px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+label {
+  display: block;
+  margin: 20px 0 8px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+input,
+select {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+}
+
+input::placeholder {
+  color: var(--muted);
+}
+
+input:focus-visible,
+select:focus-visible,
+summary:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+#results-count {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+#cases-container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+
+.case-card {
+  min-width: 0;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  overflow-wrap: anywhere;
+}
+
+.case-category {
+  display: inline-block;
+  margin: 0 0 14px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: #edf0ff;
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.case-card h3 {
+  margin: 0 0 10px;
+  font-size: 1.15rem;
+  line-height: 1.4;
+}
+
+.case-card > p:not(.case-category) {
+  margin: 0 0 20px;
+  color: var(--muted);
+}
+
+details {
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+summary {
+  color: var(--accent);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+summary:hover {
+  text-decoration: underline;
+}
+
+details h4 {
+  margin: 24px 0 8px;
+  font-size: 0.95rem;
+}
+
+details ul,
+details ol {
+  padding-left: 22px;
+  margin: 0;
+}
+
+details li {
+  margin-bottom: 10px;
+  color: var(--muted);
+}
+
+details > p {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+/* Let the no-results message span the whole grid. */
+#cases-container > p {
+  grid-column: 1 / -1;
+  padding: 24px;
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  text-align: center;
+  color: var(--muted);
+}
+
+footer {
+  padding: 24px 20px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+footer p {
+  margin: 4px 0;
+}
+
+/* Use one column on smaller screens. */
+@media (max-width: 650px) {
+  header {
+    padding: 40px 20px;
+  }
+
+  main {
+    margin-top: 24px;
+  }
+
+  main > section:first-child,
+  .case-card {
+    padding: 20px;
+  }
+
+  #cases-container {
+    grid-template-columns: 1fr;
+  }
+}
+.resolve-button {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px 16px;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--accent);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.resolve-button:hover {
+  background: #edf0ff;
+}
+
+.resolve-button:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.case-card.is-resolved {
+  border-color: #287344;
+}
+
+.resolve-button[aria-pressed="true"] {
+  border-color: #287344;
+  background: #eaf5ee;
+  color: #205c36;
+}
+
+.case-card .save-message {
+  margin: 10px 0 0;
+  font-size: 0.85rem;
+}
+
+.save-message:empty {
+  display: none;
+}
