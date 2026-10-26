@@ -1,4 +1,5 @@
 # Troubleshoot Desk
+[Live Demo](https://cs-etchigoba.github.io/troubleshoot-desk/)
 
 A browser-based IT troubleshooting assistant that helps users find
 guides for common hardware, software, networking, and licensing problems.
